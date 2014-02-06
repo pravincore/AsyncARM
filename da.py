@@ -15,7 +15,7 @@ while True:
         l = f.read(1)
         if(l):
                 s = '{:0>2}'.format(format(ord(l),'x'))
-                str += ' '+s
+                str += s
                 if(count%4 == 0 and count != 0):
                         str += '\n'
         else:

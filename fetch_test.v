@@ -4,10 +4,10 @@
 // Company: 
 // Engineer:
 //
-// Create Date:   21:49:48 01/17/2014
+// Create Date:   09:44:36 02/06/2014
 // Design Name:   fetch
-// Module Name:   /home/pravinkumar/Documents/Workspace/Xilinx/AsynARM/fetch_test.v
-// Project Name:  arm
+// Module Name:   /home/pravinkumar/Workspace/Xilinx/AsyncARM/fetch_test.v
+// Project Name:  AsyncARM
 // Target Device:  
 // Tool versions:  
 // Description: 
@@ -26,75 +26,48 @@ module fetch_test;
 
 	// Inputs
 	reg triggerIn;
-	reg [7:0] dataIn;
+	reg [31:0] dataIn;
 	reg readyIn;
 	reg [31:0] pcIn;
 
 	// Outputs
-	wire triggerOut;
 	wire [31:0] dataOut;
 	wire readyOut;
-	wire [31:0] pcOut;
+	wire triggerOut;
 	wire [31:0] addrOut;
-	
-	reg [7:0]mem[3:0];
+	wire [31:0] pcOut;
 
 	// Instantiate the Unit Under Test (UUT)
 	fetch uut (
 		.triggerIn(triggerIn), 
-		.dataIn(dataIn), 
-		.triggerOut(triggerOut), 
 		.dataOut(dataOut), 
 		.readyOut(readyOut), 
+		.dataIn(dataIn), 
+		.triggerOut(triggerOut), 
 		.readyIn(readyIn), 
+		.addrOut(addrOut), 
 		.pcIn(pcIn), 
-		.pcOut(pcOut), 
-		.addrOut(addrOut)
+		.pcOut(pcOut)
 	);
 
 	initial begin
 		// Initialize Inputs
-		fork
 		triggerIn = 0;
 		dataIn = 0;
 		readyIn = 0;
 		pcIn = 0;
-		join
-		
-		mem[0] = 1;
-		mem[1] = 2;
-		mem[2] = 3;
-		mem[3] = 4;
 
 		// Wait 100 ns for global reset to finish
 		#100;
 		
-        pcIn = 0;
-		  triggerIn = ~triggerIn;
-		  
-  		  #1 dataIn = mem[addrOut];
-		  readyIn = 1;
-		  @(posedge triggerOut or negedge triggerOut);
-		  readyIn = 0;
-		  
-  		  #1 dataIn = mem[addrOut];
-		  readyIn = 1;
-		  @(posedge triggerOut or negedge triggerOut);
-		  readyIn = 0;
-		  
-  		  #1 dataIn = mem[addrOut];
-		  readyIn = 1;
-		  @(posedge triggerOut or negedge triggerOut);
-		  readyIn = 0;
-		  
-  		  #1 dataIn = mem[addrOut];
-		  readyIn = 1;
-		  @(posedge triggerOut or negedge triggerOut);
-		  readyIn = 0;
-		  
-		  
+		triggerIn = ~triggerIn;
+		@(posedge triggerOut or negedge triggerOut);
+		dataIn = 255;
+		#1 readyIn = 1;
+        
+		#100 $finish;
 		// Add stimulus here
-		#50 $finish;
+
 	end
       
 endmodule

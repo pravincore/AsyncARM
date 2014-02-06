@@ -29,7 +29,7 @@ module rom_test;
 	reg triggerIn;
 
 	// Outputs
-	wire [7:0] data;
+	wire [31:0] data;
 	wire readyOut;
 
 	// Instantiate the Unit Under Test (UUT)
@@ -50,7 +50,7 @@ module rom_test;
 		
 		addr = 0;
 		#1 triggerIn = ~triggerIn;
-		wait (readyOut) addr = 3;
+		wait (readyOut) addr = 2;
 		#1 triggerIn = ~triggerIn;
 		
 		#10 $finish;

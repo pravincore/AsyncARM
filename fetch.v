@@ -22,7 +22,7 @@ module fetch(
 input triggerIn,				// to decode
 output reg [31:0]dataOut,	// to decode
 output reg readyOut,			// to decode
-input [7:0]dataIn,			// to rom
+input [31:0]dataIn,			// to rom
 output reg triggerOut,		// to rom
 input readyIn,					// to rom
 output reg [31:0]addrOut,	// to rom
@@ -32,7 +32,6 @@ output reg [31:0]pcOut		// to pc
 	 
 	 reg [31:0]data;
 	 reg [31:0]pc;
-	 integer i;
 	 
 	 initial fork
 	 triggerOut = 0;
@@ -48,48 +47,18 @@ output reg [31:0]pcOut		// to pc
 	 forever @(posedge triggerIn or negedge triggerIn)
 	 begin
 		
+		fork
+		readyOut = 0;
 		pc = pcIn;
-		pcOut = pc+4;
+		join
+		pcOut = pc+1;
 		
 		addrOut = pc;
 		#1 triggerOut = ~triggerOut;
 		wait (readyIn);
-		fork
-		data[7:0] = dataIn;
-//		$display(data[7:0]);
-		pc = pc+1;
-		join
-		
-		addrOut = pc;
-		#1 triggerOut = ~triggerOut;
-		wait (readyIn);
-		fork
-		data[15:8] = dataIn;
-//		$display(data[15:8]);
-		pc = pc+1;
-		join
-		
-		addrOut = pc;
-		#1 triggerOut = ~triggerOut;
-		wait (readyIn);
-		fork
-		data[23:16] = dataIn;
-//		$display(data[23:16]);
-		pc = pc+1;
-		join
-		
-		addrOut = pc;
-		#1 triggerOut = ~triggerOut;
-		wait (readyIn);
-		fork
-		data[31:24] = dataIn;
-//		$display(data[31:24]);
-		join
-		
-		dataOut = data;
-//		$display("%h",data);
+		dataOut = dataIn;
 		readyOut = 1;
-	 
+		
 	 end
 	 end
 	 
