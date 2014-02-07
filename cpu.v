@@ -35,7 +35,7 @@ output reg [31:0]portOut
 	 
 	 // rom to fetch wires
 	 wire [31:0]addr_fr;
-	 wire [7:0]data_fr;
+	 wire [31:0]data_fr;
 	 wire trigger_fr;
 	 wire ready_fr;
 	 // fetch to pc wires
@@ -70,11 +70,12 @@ output reg [31:0]portOut
 	 
 	 always @(pcWrite_fp) begin
 		pcRead_fp = pcWrite_fp;
-		#1 $display(pcWrite_fp);
-		
+		//#1 $display(pcWrite_fp);
 	 end
+	 
 	 always @(data_fi)
 		portOut = data_fi;
+	 
 	 initial begin
 		trigger_fi = 0;
 		#100; // wait for global reset
@@ -84,10 +85,12 @@ output reg [31:0]portOut
 		fork
 		
 		forever
-			wait (ready_fi) trigger_fi = ~trigger_fi;
+			wait (ready_fi) #1 trigger_fi = ~trigger_fi;
 		
 		#100 $finish;
 		join
 	 end
+	 
+//	 $monitor(
 	 
 endmodule

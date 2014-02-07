@@ -26,9 +26,9 @@ module fetch_test;
 
 	// Inputs
 	reg triggerIn;
-	reg [31:0] dataIn;
-	reg readyIn;
-	reg [31:0] pcIn;
+	wire [31:0] dataIn;
+	wire readyIn;
+	wire [31:0] pcIn;
 
 	// Outputs
 	wire [31:0] dataOut;
@@ -49,21 +49,42 @@ module fetch_test;
 		.pcIn(pcIn), 
 		.pcOut(pcOut)
 	);
+	//////////////////////////////////////
+	
+	rom rom1(
+	 .addr(addrOut),
+	 .data(dataIn),
+	 .triggerIn(triggerOut),
+	 .readyOut(readyIn)
+	 );
+	
+	//////////////////////////////////////
+	
+	regbank regb (
+		.pcIn(pcOut),
+		.pcOut(pcIn)
+	);
+	
+	///////////////////////////////////////
 
 	initial begin
 		// Initialize Inputs
 		triggerIn = 0;
-		dataIn = 0;
-		readyIn = 0;
-		pcIn = 0;
+//		dataIn = 0;
+//		readyIn = 0;
+//		pcIn = 0;
 
 		// Wait 100 ns for global reset to finish
 		#100;
 		
 		triggerIn = ~triggerIn;
-		@(posedge triggerOut or negedge triggerOut);
-		dataIn = 255;
-		#1 readyIn = 1;
+		wait (readyOut) #1; triggerIn = ~triggerIn;
+		wait (readyOut) #1; triggerIn = ~triggerIn;
+		wait (readyOut) #1; triggerIn = ~triggerIn;
+		wait (readyOut) #1; triggerIn = ~triggerIn;
+//		@(posedge triggerOut or negedge triggerOut);
+//		dataIn = 255;
+//		#1 readyIn = 1;
         
 		#100 $finish;
 		// Add stimulus here

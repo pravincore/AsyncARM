@@ -25,32 +25,25 @@ input triggerIn,			//		Fetch
 output reg readyOut		//
     );
 
-reg [31:0]mem[1048576:0]; // I have currently allocated 1MB of romspace for simulation
-//integer i;
-/*/ 
-4294967295: thats 4GB in bytes and too big to simulate
-*/
+	reg [31:0]mem[1048576:0]; // I have currently allocated 4MB of romspace for simulation
 
-initial
-begin
-$readmemh("test.bin",mem);
-readyOut = 0;
-data = 0;
-//for(i =0; i<12; i =i+1) begin
-//$display("%h",mem[i]);
-//end
-end
+	initial
+	begin
+		$readmemh("test.bin",mem);
+		readyOut = 0;
+		data = 0;
+	end
 
-initial begin
-#10; // ignoring global reset edges
-forever @(posedge triggerIn or negedge triggerIn)
-begin
-readyOut = 0;
-data = mem[addr];
-#1; // hold (it ;):D))
-readyOut = 1;
-end
-end
+	initial begin
+	#10; // ignoring global reset edges
+		forever @(posedge triggerIn or negedge triggerIn)
+		begin
+			readyOut = 0;
+			data = mem[addr];
+			#1; // hold (it ;):D))
+			readyOut = 1;
+		end
+	end
 
 endmodule
 

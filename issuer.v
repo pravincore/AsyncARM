@@ -63,7 +63,7 @@ input [31:0]cpsr
 	 // Almost took 24hrs to debug this one ! SH pushed me to do it !
 	 forever @(posedge triggerIn or negedge triggerIn)
 	 begin
-		wait (readyIn);
+		wait (readyIn) #1;
 		fork
 		data = dataIn;
 		cond = dataIn[31:28];

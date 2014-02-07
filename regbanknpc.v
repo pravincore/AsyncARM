@@ -19,15 +19,15 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module regbank(
-input triggerInr,
-input triggerInw,
-input [31:0]dataIn,
-input [3:0]addrr,
-input [3:0]addrw,
-output reg readyOut,
-output reg [31:0]dataOut,
-input [31:0]pcIn,
-output reg [31:0]pcOut
+input triggerInr,				// decoder
+input triggerInw,				// writeback
+input [31:0]dataIn,			// writeback
+input [3:0]addrr,				// decoder
+input [3:0]addrw,				// writeback
+output reg readyOut,			// decoder
+output reg [31:0]dataOut,	// decoder
+input [31:0]pcIn,				// fetch
+output reg [31:0]pcOut		// fetch
     );
 	 
 	 reg [31:0]mem[15:0];
@@ -75,6 +75,7 @@ output reg [31:0]pcOut
 			mem[15] = pcIn;
 		end
 	 end
+	 
 	 always @(mem[15])
 		pcOut = mem[15];
 	 

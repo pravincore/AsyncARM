@@ -55,7 +55,7 @@ output reg [31:0]pcOut		// to pc
 		
 		addrOut = pc;
 		#1 triggerOut = ~triggerOut;
-		wait (readyIn);
+		wait (readyIn) #1;
 		dataOut = dataIn;
 		readyOut = 1;
 		
