@@ -27,10 +27,12 @@ input [3:0]addrw,				// writeback
 output reg readyOut,			// decoder
 output reg [31:0]dataOut,	// decoder
 input [31:0]pcIn,				// fetch
-output reg [31:0]pcOut		// fetch
+output reg [31:0]pcOut,		// fetch
+output [31:0]cpsrOut
     );
 	 
 	 reg [31:0]mem[15:0];
+	 reg [31:0]cpsr;
 	 
 	 initial begin
 	 // for simulation only
@@ -39,6 +41,7 @@ output reg [31:0]pcOut		// fetch
 //	 mem[2] = 3;
 //	 mem[3] = 4;
 	 //
+	 cpsr = 0;
 		readyOut = 0;
 		dataOut = 0;
 		pcOut = 0;
@@ -65,7 +68,8 @@ output reg [31:0]pcOut		// fetch
 	 
 	 // cpsr out for the issuer
 	 
-	 
+	 always @(cpsr)
+		cpsrOut = cpsr;
 	 
 	 // pc
 	 initial begin

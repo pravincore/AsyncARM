@@ -36,6 +36,10 @@ module fetch_test;
 	wire triggerOut;
 	wire [31:0] addrOut;
 	wire [31:0] pcOut;
+	
+	// other wires
+//	wire [31:0]cpsr_irg;
+	
 
 	// Instantiate the Unit Under Test (UUT)
 	fetch uut (
@@ -62,8 +66,21 @@ module fetch_test;
 	
 	regbank regb (
 		.pcIn(pcOut),
-		.pcOut(pcIn)
+		.pcOut(pcIn),
+		.cpsrOut(cpsr),
 	);
+	
+	///////////////////////////////////////
+//	
+//	issuer issue(
+//	.readyIn(readyOut),
+//	.dataIn(dataOut),
+//	.triggeOut(triggerIn),
+//	.triggerIn(),
+//	.dataOut(),
+//	.readyOut(),
+//	.cpsr(cpsr)
+//	);
 	
 	///////////////////////////////////////
 
@@ -78,10 +95,15 @@ module fetch_test;
 		#100;
 		
 		triggerIn = ~triggerIn;
-		wait (readyOut) #1; triggerIn = ~triggerIn;
-		wait (readyOut) #1; triggerIn = ~triggerIn;
-		wait (readyOut) #1; triggerIn = ~triggerIn;
-		wait (readyOut) #1; triggerIn = ~triggerIn;
+		#0;
+		wait (readyOut) triggerIn = ~triggerIn;
+		#0;
+		wait (readyOut) triggerIn = ~triggerIn;
+		#0;
+		wait (readyOut) triggerIn = ~triggerIn;
+		#0;
+		wait (readyOut) triggerIn = ~triggerIn;
+//		wait (readyOut) #1; triggerIn = ~triggerIn;
 //		@(posedge triggerOut or negedge triggerOut);
 //		dataIn = 255;
 //		#1 readyIn = 1;

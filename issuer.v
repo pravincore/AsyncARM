@@ -32,13 +32,13 @@ Guess what, you can't put an always inside initial but forever can be put inside
 */
 ///////////////////////// issuer code begins here ////////////////////////////////
 module issuer(
-input readyIn,
-input [31:0]dataIn,
-input triggerIn,
-output reg readyOut,
-output reg [31:0]dataOut,
-output reg triggerOut,
-input [31:0]cpsr
+input readyIn,					// fetch
+input [31:0]dataIn,			// fetch
+output reg triggerOut,		// fetch
+input triggerIn,				// decode
+output reg readyOut,			// decode
+output reg [31:0]dataOut,	// decode
+input [31:0]cpsr				// regbank
     );
 	 
 	 reg [31:0]data;
@@ -63,7 +63,7 @@ input [31:0]cpsr
 	 // Almost took 24hrs to debug this one ! SH pushed me to do it !
 	 forever @(posedge triggerIn or negedge triggerIn)
 	 begin
-		wait (readyIn) #1;
+		wait (readyIn) #0;
 		fork
 		data = dataIn;
 		cond = dataIn[31:28];
