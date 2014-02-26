@@ -19,6 +19,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module fetch(
+input reset,
 input triggerIn,				// to decode
 output reg [31:0]dataOut,	// to decode
 output reg readyOut,			// to decode
@@ -33,6 +34,8 @@ output reg [31:0]pcOut		// to pc
 	 reg [31:0]data;
 	 reg [31:0]pc;
 	 
+	 event resetTrigger;
+	 
 	 initial fork
 	 triggerOut = 0;
 	 dataOut = 0;
@@ -44,24 +47,25 @@ output reg [31:0]pcOut		// to pc
 	 
 	 initial begin
 	 #10;
-	 forever @(posedge triggerIn or negedge triggerIn)
+	 forever @(posedge triggerIn or negedge triggerIn or resetTrigger)
 	 begin
-		
-		fork
 		readyOut = 0;
 		pc = pcIn;
-		join
 		pcOut = pc+1;
 		
 		addrOut = pc;
 		#1 triggerOut = ~triggerOut;
-		wait (readyIn);
+		#0 wait (readyIn);
+		$display("read time ", $time);
 		dataOut = dataIn;
 		#1 readyOut = 1;
-		
 	 end
 	 end
 	 
+	 always @(reset)
+		if (reset) begin
+			-> resetTrigger;
+		end
 
 
 endmodule

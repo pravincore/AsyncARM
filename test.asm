@@ -1,3 +1,3 @@
-mov r3, #10
-mov r4, #20
-add r5, r3, r5
+mov r3, #255
+mov r4, #10
+mov r5, #01

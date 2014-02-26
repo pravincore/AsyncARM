@@ -8,11 +8,16 @@
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
          <ClosedNode>/cpu |home|pravinkumar|Workspace|Xilinx|AsyncARM|cpu.v</ClosedNode>
+         <ClosedNode>/cpu_test C:|Users|pravinkumar|Documents|GitHub|AsyncARM|cpu_test.v</ClosedNode>
          <ClosedNode>/cpu_test |home|pravinkumar|Workspace|Xilinx|AsyncARM|cpu_test.v</ClosedNode>
+         <ClosedNode>/decoder_test C:|Users|pravinkumar|Documents|GitHub|AsyncARM|decoder_test.v</ClosedNode>
          <ClosedNode>/decoder_test |home|pravinkumar|Workspace|Xilinx|AsyncARM|decoder_test.v</ClosedNode>
          <ClosedNode>/fetch_test |home|pravinkumar|Workspace|Xilinx|AsyncARM|fetch_test.v</ClosedNode>
+         <ClosedNode>/issuer_test C:|Users|pravinkumar|Documents|GitHub|AsyncARM|issuer_test.v</ClosedNode>
          <ClosedNode>/issuer_test |home|pravinkumar|Workspace|Xilinx|AsyncARM|issuer_test.v</ClosedNode>
+         <ClosedNode>/regbank_test C:|Users|pravinkumar|Documents|GitHub|AsyncARM|regbank_test.v</ClosedNode>
          <ClosedNode>/regbank_test |home|pravinkumar|Workspace|Xilinx|AsyncARM|regbank_test.v</ClosedNode>
+         <ClosedNode>/rom_test C:|Users|pravinkumar|Documents|GitHub|AsyncARM|rom_test.v</ClosedNode>
          <ClosedNode>/rom_test |home|pravinkumar|Workspace|Xilinx|AsyncARM|rom_test.v</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
@@ -20,7 +25,7 @@
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000000f3000000020000000000000000000000000200000064ffffffff000000810000000300000002000000f30000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000000ee000000020000000000000000000000000200000064ffffffff000000810000000300000002000000ee0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
       <CurrentItem>cpu_test (C:/Users/pravinkumar/Documents/GitHub/AsyncARM/cpu_test.v)</CurrentItem>
    </ItemView>
@@ -71,22 +76,25 @@
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem>Design Summary/Reports</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem>Design Summary/Reports</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
          <ClosedNode>/cpu_test C:|Users|pravinkumar|Documents|GitHub|AsyncARM|cpu_test.v</ClosedNode>
+         <ClosedNode>/cpu_test C:|Users|pravinkumar|Documents|GitHub|AsyncARM|cpu_test.v/uut - cpu</ClosedNode>
          <ClosedNode>/cpu_test |home|pravinkumar|Workspace|Xilinx|AsyncARM|cpu_test.v</ClosedNode>
-         <ClosedNode>/decoder_test C:|Users|pravinkumar|Documents|GitHub|AsyncARM|decoder_test.v</ClosedNode>
+         <ClosedNode>/decode_test C:|Users|pravinkumar|Documents|GitHub|AsyncARM|decode_test.v</ClosedNode>
          <ClosedNode>/decoder_test |home|pravinkumar|Workspace|Xilinx|AsyncARM|decoder_test.v</ClosedNode>
+         <ClosedNode>/fetch_test C:|Users|pravinkumar|Documents|GitHub|AsyncARM|fetch_test.v</ClosedNode>
          <ClosedNode>/fetch_test |home|pravinkumar|Workspace|Xilinx|AsyncARM|fetch_test.v</ClosedNode>
+         <ClosedNode>/issue_interface_test C:|Users|pravinkumar|Documents|GitHub|AsyncARM|issue_interface_test.v</ClosedNode>
          <ClosedNode>/issuer_test C:|Users|pravinkumar|Documents|GitHub|AsyncARM|issuer_test.v</ClosedNode>
          <ClosedNode>/regbank_test C:|Users|pravinkumar|Documents|GitHub|AsyncARM|regbank_test.v</ClosedNode>
          <ClosedNode>/regbank_test |home|pravinkumar|Workspace|Xilinx|AsyncARM|regbank_test.v</ClosedNode>
@@ -98,7 +106,7 @@
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000000f9000000020000000000000000000000000200000064ffffffff000000810000000300000002000000f90000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000122000000020000000000000000000000000200000064ffffffff000000810000000300000002000001220000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
       <CurrentItem>fetch_test (C:/Users/pravinkumar/Documents/GitHub/AsyncARM/fetch_test.v)</CurrentItem>
    </ItemView>
@@ -108,6 +116,21 @@
          <ClosedNode>Design Utilities</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
+         <SelectedItem/>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
+   </ItemView>
+   <SourceProcessView>000000ff000000000000000200000106000000b801000000060100000002</SourceProcessView>
+   <CurrentView>Behavioral Simulation</CurrentView>
+   <ItemView engineview="BehavioralSim" sourcetype="DESUT_VERILOG" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
          <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
@@ -115,20 +138,5 @@
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem></CurrentItem>
-   </ItemView>
-   <SourceProcessView>000000ff00000000000000020000014c0000011d01000000060100000002</SourceProcessView>
-   <CurrentView>Behavioral Simulation</CurrentView>
-   <ItemView engineview="BehavioralSim" sourcetype="DESUT_VERILOG" guiview="Process" >
-      <ClosedNodes>
-         <ClosedNodesVersion>1</ClosedNodesVersion>
-      </ClosedNodes>
-      <SelectedItems>
-         <SelectedItem>Simulate Behavioral Model</SelectedItem>
-      </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
-      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
-      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>Simulate Behavioral Model</CurrentItem>
    </ItemView>
 </Project>

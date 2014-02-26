@@ -29,6 +29,7 @@ module fetch_test;
 	wire [31:0] dataIn;
 	wire readyIn;
 	wire [31:0] pcIn;
+	reg reset;
 
 	// Outputs
 	wire [31:0] dataOut;
@@ -43,6 +44,7 @@ module fetch_test;
 
 	// Instantiate the Unit Under Test (UUT)
 	fetch uut (
+		.reset(reset),
 		.triggerIn(triggerIn), 
 		.dataOut(dataOut), 
 		.readyOut(readyOut), 
@@ -67,7 +69,7 @@ module fetch_test;
 	regbank regb (
 		.pcIn(pcOut),
 		.pcOut(pcIn),
-		.cpsrOut(cpsr),
+		.cpsrOut(cpsr)
 	);
 	
 	///////////////////////////////////////
@@ -87,6 +89,7 @@ module fetch_test;
 	initial begin
 		// Initialize Inputs
 		triggerIn = 0;
+		reset = 0;
 //		dataIn = 0;
 //		readyIn = 0;
 //		pcIn = 0;
@@ -94,24 +97,24 @@ module fetch_test;
 		// Wait 100 ns for global reset to finish
 		#100;
 		
-		triggerIn = ~triggerIn;
-		#0;
+		reset = 1;
+		
 		wait (readyOut) triggerIn = ~triggerIn;
 		#0;
 		wait (readyOut) triggerIn = ~triggerIn;
 		#0;
 		wait (readyOut) triggerIn = ~triggerIn;
-		#0;
-		wait (readyOut) triggerIn = ~triggerIn;
+		
+//		wait (readyOut) #1; triggerIn = ~triggerIn;
+//		
 //		wait (readyOut) #1; triggerIn = ~triggerIn;
 //		@(posedge triggerOut or negedge triggerOut);
-//		dataIn = 255;
+//		dataIn = 255;888888888888888888
 //		#1 readyIn = 1;
-        
-		#100 $finish;
+      
+		#50 $finish;
 		// Add stimulus here
 
 	end
       
 endmodule
-

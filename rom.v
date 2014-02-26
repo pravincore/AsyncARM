@@ -40,8 +40,7 @@ output reg readyOut		//
 		begin
 			readyOut = 0;
 			data = mem[addr];
-			#1; // hold (it ;):D))
-			readyOut = 1;
+			#1 readyOut = 1; // hold ( it ;):D) )
 		end
 	end
 

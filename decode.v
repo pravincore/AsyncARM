@@ -19,37 +19,38 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module decode(
-
+input reset,
 // pipeline interface
-input [31:0]dataIn,
-input readyIn,
-input triggerIn,
-output reg [31:0]dataOut1,
-output reg [31:0]dataOut2,
-output reg [31:0]dataOut3,
-output reg [31:0]dataOut4,
-output reg [3:0]typeOut,
-output reg readyOut,
-output reg triggerOut,
+input [31:0]dataIn,				//issuer
+input readyIn,						//issuer
+input triggerIn,					//alu
+output reg [31:0]dataOut1,		//alu
+output reg [31:0]dataOut2,		//alu
+output reg [31:0]dataOut3,		//alu
+output reg [31:0]dataOut4,		//alu
+output reg [3:0]typeOut,		//alu
+output reg readyOut,				//alu
+output reg triggerOut,			//issuer
 
 // register bank interface
-input readyInRB,
-input dataInRB,
-input semRB,
-output reg rwRB,
-output reg addrRB,
-output reg triggerOutRB
+input readyInRB,					//rb
+input [31:0]dataInRB,			//rb
+output reg [31:0]addrRB,		//rb		
+output reg triggerOutRB			//rb
     );
+	 
+	 reg [31:0]data;
+	 event resetTrigger;
 	 
 	 initial begin
 	 fork
+	 typeOut = 0;
 	 dataOut1 = 0;
 	 dataOut2= 0;
 	 dataOut3 = 0;
 	 dataOut4 = 0;
 	 readyOut = 0;
 	 triggerOut = 0;
-	 rwRB = 0;
 	 addrRB = 0;
 	 triggerOutRB = 0;
 	 join
@@ -57,35 +58,51 @@ output reg triggerOutRB
 	 
 	 initial begin
 	 #10;
-	 forever @(posedge triggerIn or negedge triggerIn)
+	 forever @(posedge triggerIn or negedge triggerIn or resetTrigger)
 	 begin
-		wait (readyIn);
-		fork
-			
-		join
-		if( ~data[27] & ~data[26] & (~data[7] | ~data[4])) // condition for data processing instructions
+		
+		readyOut = 0;
+		data = dataIn;
+		dataOut4 = dataIn; // original instruction
+		
+		if( (~data[27] & ~data[26] & data[25])
+			 |((~data[27] & ~data[26] & ~data[25])&(~data[7]|~data[4])) ) // condition for data processing instructions
 		begin
-			type = 0;
+		
+			$display("Condition passed");
+			
+			typeOut = 0;
+			
+			if ( data[24:21] != 4'b1101 && data[24:21] != 4'b1111 ) begin
 			// get operand1
-			wait (~semRB);
-			addrRB = data[15:12];
+			addrRB = data[19:16];
 			#1 triggerOutRB = ~triggerOutRB;
-			wait (readyInRB);
+			#0 wait (readyInRB);
 			dataOut1 = dataInRB;
-			// get operand2
-			if(dataIn[25])
-			begin
-				wait (~semRB);
-				addrRB = dataIn[15:12];
-				#1 triggerOutRB = ~triggerOutRB;
-				wait (readyInRB);
-				dataOut1 = dataInRB;
 			end
-			else dataOut2 = dataIn[7:0];
+			
+			$display("value of %b",data[25]);
+			// get operand2
+			if(~data[25])
+			begin
+				addrRB = data[3:0];
+				#1 triggerOutRB = ~triggerOutRB;
+				#0 wait (readyInRB);
+				dataOut2 = dataInRB;
+			end
+			else dataOut2 = data[7:0];
+		
 		end
-		dataOut4 = dataIn;
+		readyOut = 1;
 //		trigger
 	 end
 	 end
+	 
+	 
+	 always @(reset)
+		if (reset) begin
+			wait (readyIn);
+				-> resetTrigger;
+		end
 	 
 endmodule

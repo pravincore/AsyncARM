@@ -19,7 +19,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 //use the following as suffix in the nomenclature of wires in cpu 
-//rom r, fetch f, issue i, decode d, alu e, writeback w, memory m, ram ra,
+//rom r, fetch f, issue i, decode d, alu a, writeback w, memory m, ram ra,
 //prog. counter p, register bank rg
 //
 //

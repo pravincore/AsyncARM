@@ -32,6 +32,7 @@ Guess what, you can't put an always inside initial but forever can be put inside
 */
 ///////////////////////// issuer code begins here ////////////////////////////////
 module issuer(
+input reset,
 input readyIn,					// fetch
 input [31:0]dataIn,			// fetch
 output reg triggerOut,		// fetch
@@ -43,7 +44,8 @@ input [31:0]cpsr				// regbank
 	 
 	 reg [31:0]data;
 	 reg [3:0]cond;
-	 
+	 event resetTrigger;
+	 integer resetFlag;
 	 
 	 initial
 	 begin
@@ -54,6 +56,7 @@ input [31:0]cpsr				// regbank
 	 cond = 0;
 	 triggerOut =0;
 	 readyOut = 0;
+	 resetFlag = 0;
 	 join
 	 
 	 end
@@ -61,15 +64,16 @@ input [31:0]cpsr				// regbank
 	 initial begin
 	 #10; // This is to make the design insensitive to initialization edges
 	 // Almost took 24hrs to debug this one ! SH pushed me to do it !
-	 forever @(posedge triggerIn or negedge triggerIn)
+	 forever @(posedge triggerIn or negedge triggerIn or resetTrigger)
 	 begin
-		wait (readyIn) #0;
-		fork
+//		$display("Issuer ran with cpsr %h", cpsr," and data %h", dataIn," at ", $time);
+		
+		readyOut = 0;
+		if (!resetFlag) #1 triggerOut = ~triggerOut;
+		else resetFlag = 0;
+		#0 wait (readyIn);
 		data = dataIn;
 		cond = dataIn[31:28];
-		triggerOut = ~triggerOut;
-		readyOut = 0;
-		join
 		
 		if((cond == 4'b0000) && (cpsr[30] == 1'b1)			// z = 1 for EQ
 		|| (cond == 4'b0001) && (cpsr[30] == 1'b0)	// z = 0 for NEQ
@@ -86,14 +90,23 @@ input [31:0]cpsr				// regbank
       || (cond == 4'b1100) && (cpsr[30] == 1'b0) && (cpsr[31] == cpsr[28])
 		|| (cond == 4'b1101) && ((cpsr[30] == 1'b1) || (cpsr[31] != cpsr[28]))
 		|| (cond == 4'b1110))
-		
 		begin
-			#1 dataOut = data; // computation delay modelled
-			#1; // dataOut setup time
-			readyOut = 1;
+			dataOut = data; // computation delay modelled
+			// dataOut setup time
+			#1 readyOut = 1;
 		end
 	 end
 	 
 	 end
+	 
+	 always @(reset)
+		if (reset) begin
+			wait (readyIn);
+			resetFlag = 1;
+			-> resetTrigger;
+		end
+		
+	always @(posedge triggerIn or negedge triggerIn) $display ("triggerIn edge at ",$time);
+	always @(resetTrigger) $display ("resetTrigger at ",$time);
 	 
 endmodule

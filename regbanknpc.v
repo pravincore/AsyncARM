@@ -28,7 +28,7 @@ output reg readyOut,			// decoder
 output reg [31:0]dataOut,	// decoder
 input [31:0]pcIn,				// fetch
 output reg [31:0]pcOut,		// fetch
-output [31:0]cpsrOut
+output reg [31:0]cpsrOut	// issue
     );
 	 
 	 reg [31:0]mem[15:0];
@@ -46,7 +46,7 @@ output [31:0]cpsrOut
 		dataOut = 0;
 		pcOut = 0;
 	 end
-	 
+	 ////////////////////////////// Core registers ////////////////////
 	 initial begin
 		#10;
 		forever @(posedge triggerInr or negedge triggerInr)
@@ -65,6 +65,7 @@ output [31:0]cpsrOut
 			mem[addrw] = dataIn;
 		end
 	 end
+	 ///////////////////////////////////////////////////////////////////
 	 
 	 // cpsr out for the issuer
 	 
