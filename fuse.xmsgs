@@ -5,5 +5,11 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"C:/Users/pravinkumar/Documents/GitHub/AsyncARM/decode_test.v" Line 65: Port <arg fmt="%s" index="1">triggerInw</arg> is not connected to this instance
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"C:/Users/pravinkumar/Documents/GitHub/AsyncARM/decode_test.v" Line 69: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">addrr</arg>&gt;. Formal port size is <arg fmt="%d" index="2">4</arg>-bit while actual signal size is <arg fmt="%d" index="1">32</arg>-bit.
+</msg>
+
 </messages>
 

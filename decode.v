@@ -60,7 +60,7 @@ output reg triggerOutRB			//rb
 	 #10;
 	 forever @(posedge triggerIn or negedge triggerIn or resetTrigger)
 	 begin
-		
+		$display("ran at time ", $time);
 		readyOut = 0;
 		data = dataIn;
 		dataOut4 = dataIn; // original instruction
@@ -68,9 +68,6 @@ output reg triggerOutRB			//rb
 		if( (~data[27] & ~data[26] & data[25])
 			 |((~data[27] & ~data[26] & ~data[25])&(~data[7]|~data[4])) ) // condition for data processing instructions
 		begin
-		
-			$display("Condition passed");
-			
 			typeOut = 0;
 			
 			if ( data[24:21] != 4'b1101 && data[24:21] != 4'b1111 ) begin
@@ -81,7 +78,6 @@ output reg triggerOutRB			//rb
 			dataOut1 = dataInRB;
 			end
 			
-			$display("value of %b",data[25]);
 			// get operand2
 			if(~data[25])
 			begin

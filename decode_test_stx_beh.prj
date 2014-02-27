@@ -1,3 +1,4 @@
+verilog isim_temp "regbanknpc.v"
 verilog isim_temp "decode.v"
 verilog isim_temp "decode_test.v"
 verilog isim_temp "C:/Xilinx/14.2/ISE_DS/ISE//verilog/src/glbl.v"

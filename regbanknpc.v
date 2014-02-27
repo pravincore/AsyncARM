@@ -36,11 +36,17 @@ output reg [31:0]cpsrOut	// issue
 	 
 	 initial begin
 	 // for simulation only
-//	 mem[0] = 1;
-//	 mem[1] = 2;
-//	 mem[2] = 3;
-//	 mem[3] = 4;
-	 //
+	 mem[0] = 1;
+	 mem[1] = 2;
+	 mem[2] = 3;
+	 mem[3] = 4;
+	 mem[4] = 5;
+	 mem[5] = 6;
+	 mem[6] = 7;
+	 mem[7] = 8;
+	 mem[8] = 9;
+	 mem[9] = 10;
+	 
 	 cpsr = 0;
 		readyOut = 0;
 		dataOut = 0;

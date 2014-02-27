@@ -29,8 +29,8 @@ module decode_test;
 	reg [31:0] dataIn;
 	reg readyIn;
 	reg triggerIn;
-	reg readyInRB;
-	reg [31:0]dataInRB;
+	wire readyInRB;
+	wire [31:0]dataInRB;
 
 	// Outputs
 	wire [31:0] dataOut1;
@@ -61,6 +61,19 @@ module decode_test;
 		.addrRB(addrRB), 
 		.triggerOutRB(triggerOutRB)
 	);
+	
+		regbank regb (
+		.triggerInr(triggerOutRB),
+//		.triggerInw(),
+//		.dataIn(),
+		.addrr(addrRB),
+//		.addrw(),
+		.readyOut(readyInRB),
+		.dataOut(dataInRB)
+//		.pcIn(pcW_frg),
+//		.pcOut(pcR_frg),
+//		.cpsrOut(cpsr_irg)
+	);
 
 	initial begin
 		// Initialize Inputs
@@ -68,18 +81,25 @@ module decode_test;
 		dataIn = 0;
 		readyIn = 0;
 		triggerIn = 0;
-		readyInRB = 0;
-		dataInRB = 0;
+//		readyInRB = 0;
+//		dataInRB = 0;
 
 		// Wait 100 ns for global reset to finish
 		#100;
 		  
-		  dataIn = 32'b1110_000_1101_0_0000_0000_0000_11111111;
+		  dataIn = 32'he0837006;
+		  reset = 1;
 		  readyIn = 1;
+		  wait(readyOut) dataIn = 32'he1a04002; // $display($time);
 		  triggerIn = ~triggerIn;
-		  @(posedge triggerOutRB or negedge triggerOutRB);
-		  dataInRB = 8'hf0;
-		  readyInRB = 1;
+//		  @(posedge triggerOutRB or negedge triggerOutRB);
+//		  dataInRB = 8'hcc;
+//		  readyInRB = 1;
+//		  #0 readyInRB = 0;
+//  		  @(posedge triggerOutRB or negedge triggerOutRB);
+//		  dataInRB = 8'hcc;
+//		  readyInRB = 1;
+//  		  #0 readyInRB = 0;
 		  
 		  #50 $finish;
 		// Add stimulus here

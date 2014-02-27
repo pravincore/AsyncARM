@@ -106,7 +106,7 @@ input [31:0]cpsr				// regbank
 			-> resetTrigger;
 		end
 		
-	always @(posedge triggerIn or negedge triggerIn) $display ("triggerIn edge at ",$time);
-	always @(resetTrigger) $display ("resetTrigger at ",$time);
+//	always @(posedge triggerIn or negedge triggerIn) $display ("triggerIn edge at ",$time);
+//	always @(resetTrigger) $display ("resetTrigger at ",$time);
 	 
 endmodule

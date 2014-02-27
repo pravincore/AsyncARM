@@ -32,7 +32,7 @@ module decode_interface_test;
 	wire [31:0] data4_da;
 	wire [3:0] type_da;
 	wire ready_da;
-	wire trigger_da;
+	reg trigger_da;
 	
 	wire ready_drg;
 	wire [31:0] data_drg;
@@ -43,7 +43,7 @@ module decode_interface_test;
 	wire [31:0] data_fi;
 	wire trigger_fi;
 	
-	reg trigger_id;
+	wire trigger_id;
 	wire ready_id;
 	wire [31:0] data_id;
 	
@@ -68,7 +68,7 @@ module decode_interface_test;
 		.dataOut3(data3_da), 
 		.dataOut4(data4_da), 
 		.typeOut(type_da), 
-		.readyOut(read_da), 
+		.readyOut(ready_da), 
 		.triggerOut(trigger_id), 
 		.readyInRB(ready_drg), 
 		.dataInRB(data_drg), 
@@ -132,11 +132,16 @@ module decode_interface_test;
 
 	initial begin
 		// Initialize Inputs
-
-
+		reset = 0;
+		trigger_da = 0;
 		// Wait 100 ns for global reset to finish
 		#100;
-        
+		
+		reset = 1;
+		
+		wait(ready_da) #2 trigger_da = ~trigger_da;
+      
+		#50 $finish;
 		// Add stimulus here
 
 	end

@@ -23,6 +23,7 @@
 
   <files xmlns="http://www.xilinx.com/XMLSchema">
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="cpu_test_isim_beh.exe"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="decode_interface_test_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="decode_interface_test_stx_beh.prj"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="decode_stx_beh.prj"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="decode_test_beh.prj"/>
@@ -38,7 +39,6 @@
     <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_LOG" xil_pn:name="isim.log"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="issue_interface_test_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="issue_interface_test_stx_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="issuer_test_isim_beh.exe"/>
@@ -53,7 +53,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1393390377" xil_pn:in_ck="-7288009314347765777" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1393390377">
+    <transform xil_pn:end_ts="1393410541" xil_pn:in_ck="-7288009314347765777" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1393410541">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="cpu.v"/>
@@ -73,32 +73,25 @@
       <outfile xil_pn:name="writeback.v"/>
       <outfile xil_pn:name="writeback_test.v"/>
     </transform>
-    <transform xil_pn:end_ts="1393163186" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="8262253249200787610" xil_pn:start_ts="1393163186">
+    <transform xil_pn:end_ts="1393396536" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="8262253249200787610" xil_pn:start_ts="1393396536">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForProperties"/>
     </transform>
-    <transform xil_pn:end_ts="1393163186" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-4965362101669244488" xil_pn:start_ts="1393163186">
+    <transform xil_pn:end_ts="1393396536" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-4965362101669244488" xil_pn:start_ts="1393396536">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForProperties"/>
     </transform>
     <transform xil_pn:end_ts="1391658561" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="99253240228993316" xil_pn:start_ts="1391658561">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1393163186" xil_pn:in_ck="5720312066165204824" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1393163186">
+    <transform xil_pn:end_ts="1393410547" xil_pn:in_ck="-7288009314347765777" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1393410547">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputAdded"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="cpu.v"/>
       <outfile xil_pn:name="cpu_test.v"/>
       <outfile xil_pn:name="decode.v"/>
+      <outfile xil_pn:name="decode_interface_test.v"/>
       <outfile xil_pn:name="decode_test.v"/>
       <outfile xil_pn:name="fetch.v"/>
       <outfile xil_pn:name="fetch_test.v"/>
@@ -112,32 +105,20 @@
       <outfile xil_pn:name="writeback.v"/>
       <outfile xil_pn:name="writeback_test.v"/>
     </transform>
-    <transform xil_pn:end_ts="1393163196" xil_pn:in_ck="5720312066165204824" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-7780230978485006141" xil_pn:start_ts="1393163186">
+    <transform xil_pn:end_ts="1393410551" xil_pn:in_ck="-7288009314347765777" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-7780230978485006141" xil_pn:start_ts="1393410547">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForProperties"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="decode_test_beh.prj"/>
       <outfile xil_pn:name="decode_test_isim_beh.exe"/>
       <outfile xil_pn:name="fuse.log"/>
       <outfile xil_pn:name="isim"/>
-      <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1393163197" xil_pn:in_ck="-8353481237369728333" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-3590279298455893434" xil_pn:start_ts="1393163196">
+    <transform xil_pn:end_ts="1393410551" xil_pn:in_ck="8616933107070531925" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-3590279298455893434" xil_pn:start_ts="1393410551">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForProperties"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="decode_test_isim_beh.wdb"/>
       <outfile xil_pn:name="isim.cmd"/>
-      <outfile xil_pn:name="isim.log"/>
     </transform>
   </transforms>
 

@@ -56,7 +56,7 @@ output reg [31:0]pcOut		// to pc
 		addrOut = pc;
 		#1 triggerOut = ~triggerOut;
 		#0 wait (readyIn);
-		$display("read time ", $time);
+//		$display("read time ", $time);
 		dataOut = dataIn;
 		#1 readyOut = 1;
 	 end
