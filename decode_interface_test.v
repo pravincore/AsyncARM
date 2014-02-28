@@ -134,12 +134,13 @@ module decode_interface_test;
 		// Initialize Inputs
 		reset = 0;
 		trigger_da = 0;
+		$monitor(ready_da, $time);
 		// Wait 100 ns for global reset to finish
 		#100;
 		
 		reset = 1;
 		
-		wait(ready_da) #2 trigger_da = ~trigger_da;
+		wait(ready_da) trigger_da = ~trigger_da;
       
 		#50 $finish;
 		// Add stimulus here

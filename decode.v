@@ -41,6 +41,7 @@ output reg triggerOutRB			//rb
 	 
 	 reg [31:0]data;
 	 event resetTrigger;
+ 	 integer resetFlag;
 	 
 	 initial begin
 	 fork
@@ -62,6 +63,9 @@ output reg triggerOutRB			//rb
 	 begin
 		$display("ran at time ", $time);
 		readyOut = 0;
+		if (!resetFlag) #1 triggerOut = ~triggerOut;
+		else resetFlag = 0;
+		#0 wait (readyIn);
 		data = dataIn;
 		dataOut4 = dataIn; // original instruction
 		
@@ -89,7 +93,7 @@ output reg triggerOutRB			//rb
 			else dataOut2 = data[7:0];
 		
 		end
-		readyOut = 1;
+		#1 readyOut = 1;
 //		trigger
 	 end
 	 end
@@ -98,7 +102,8 @@ output reg triggerOutRB			//rb
 	 always @(reset)
 		if (reset) begin
 			wait (readyIn);
-				-> resetTrigger;
+			resetFlag = 1;
+			-> resetTrigger;
 		end
 	 
 endmodule

@@ -69,7 +69,7 @@ input [31:0]cpsr				// regbank
 //		$display("Issuer ran with cpsr %h", cpsr," and data %h", dataIn," at ", $time);
 		
 		readyOut = 0;
-		if (!resetFlag) #1 triggerOut = ~triggerOut;
+		if (!resetFlag) triggerOut = ~triggerOut;
 		else resetFlag = 0;
 		#0 wait (readyIn);
 		data = dataIn;

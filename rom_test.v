@@ -49,11 +49,11 @@ module rom_test;
 		#100;
 		
 		addr = 0;
-		#1 triggerIn = ~triggerIn;
-		wait (readyOut) addr = 2;
-		#1 triggerIn = ~triggerIn;
+		triggerIn = ~triggerIn;
+		#0 wait (readyOut) addr = 2;
+		triggerIn = ~triggerIn;
 		
-		#10 $finish;
+		#50 $finish;
 
 	end
       

@@ -102,8 +102,8 @@ module issue_interface_test;
 		reset = 1;
 		
 		wait (ready_id) trigger_id = ~trigger_id;
-		#2;
-		wait (ready_id) #2; trigger_id = ~trigger_id;
+		#0;
+		wait (ready_id) trigger_id = ~trigger_id;
 //		#0;
 //		wait (ready_id) trigger_id = ~trigger_id;
 //		#0;
