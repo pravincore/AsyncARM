@@ -139,9 +139,11 @@ module decode_interface_test;
 		#100;
 		
 		reset = 1;
-		
+		#0
 		wait(ready_da) trigger_da = ~trigger_da;
-      
+      #0
+		wait(ready_da) trigger_da = ~trigger_da;
+		
 		#50 $finish;
 		// Add stimulus here
 
