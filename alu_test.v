@@ -29,7 +29,6 @@ module alu_test;
 	reg trigger_aw;
 	wire [31:0] data1_aw;
 	wire [31:0] data2_aw;
-	wire [31:0] data3_aw;
 	wire [31:0] cpsr_aw;
 	wire ready_aw;
 	wire w_aw;
@@ -77,7 +76,6 @@ module alu_test;
 		.readyIn(ready_da), 
 		.dataOut1(data1_aw), 
 		.dataOut2(data2_aw), 
-		.dataOut3(data3_aw), 
 		.cpsrOut(cpsr_aw), 
 		.triggerOut(trigger_da), 
 		.readyOut(ready_aw),
