@@ -1,4 +1,4 @@
-Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/decode_interface_test_isim_beh.exe" -prj "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/decode_interface_test_beh.prj" "decode_interface_test" "work.glbl" 
+Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/alu_test_isim_beh.exe" -prj "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/alu_test_beh.prj" "work.alu_test" "work.glbl" 
 ISim P.28xd (signature 0xa0883be4)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
@@ -8,22 +8,23 @@ Analyzing Verilog file "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/regbanknp
 Analyzing Verilog file "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/issuer.v" into library work
 Analyzing Verilog file "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/fetch.v" into library work
 Analyzing Verilog file "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/decode.v" into library work
-Analyzing Verilog file "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/decode_interface_test.v" into library work
+Analyzing Verilog file "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/alu.v" into library work
+Analyzing Verilog file "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/alu_test.v" into library work
 Analyzing Verilog file "C:/Xilinx/14.2/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
-WARNING:HDLCompiler:1016 - "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/decode_interface_test.v" Line 118: Port triggerInw is not connected to this instance
-WARNING:HDLCompiler:189 - "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/decode_interface_test.v" Line 122: Size mismatch in connection of port <addrr>. Formal port size is 4-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:1016 - "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/alu_test.v" Line 144: Port triggerInw is not connected to this instance
 Completed static elaboration
+Compiling module alu
 Compiling module decode
 Compiling module issuer
 Compiling module fetch
 Compiling module rom
 Compiling module regbank
-Compiling module decode_interface_test
+Compiling module alu_test
 Compiling module glbl
 Time Resolution for simulation is 1ps.
 Waiting for 1 sub-compilation(s) to finish...
-Compiled 7 Verilog Units
-Built simulation executable C:/Users/pravinkumar/Documents/GitHub/AsyncARM/decode_interface_test_isim_beh.exe
-Fuse Memory Usage: 28876 KB
-Fuse CPU Usage: 654 ms
+Compiled 8 Verilog Units
+Built simulation executable C:/Users/pravinkumar/Documents/GitHub/AsyncARM/alu_test_isim_beh.exe
+Fuse Memory Usage: 29056 KB
+Fuse CPU Usage: 732 ms

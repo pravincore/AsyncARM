@@ -48,9 +48,9 @@ output reg [31:0]cpsrOut	// issue
 	 mem[9] = 10;
 	 
 	 cpsr = 0;
-		readyOut = 0;
-		dataOut = 0;
-		pcOut = 0;
+	 readyOut = 0;
+	 dataOut = 0;
+	 pcOut = 0;
 	 end
 	 ////////////////////////////// Core registers ////////////////////
 	 initial begin
@@ -86,7 +86,6 @@ output reg [31:0]cpsrOut	// issue
 			mem[15] = pcIn;
 		end
 	 end
-	 
 	 always @(mem[15])
 		pcOut = mem[15];
 	 

@@ -35,7 +35,7 @@ output reg triggerOut,			//issuer
 // register bank interface
 input readyInRB,					//rb
 input [31:0]dataInRB,			//rb
-output reg [31:0]addrRB,		//rb		
+output reg [3:0]addrRB,			//rb		
 output reg triggerOutRB			//rb
     );
 	 
@@ -54,6 +54,7 @@ output reg triggerOutRB			//rb
 	 triggerOut = 0;
 	 addrRB = 0;
 	 triggerOutRB = 0;
+	 resetFlag = 0;
 	 join
 	 end
 	 
@@ -61,7 +62,6 @@ output reg triggerOutRB			//rb
 	 #10;
 	 forever @(posedge triggerIn or negedge triggerIn or resetTrigger)
 	 begin
-		$display("ran at time ", $time);
 		readyOut = 0;
 		if (!resetFlag) #1 triggerOut = ~triggerOut;
 		else resetFlag = 0;
@@ -89,8 +89,22 @@ output reg triggerOutRB			//rb
 				#1 triggerOutRB = ~triggerOutRB;
 				#0 wait (readyInRB);
 				dataOut2 = dataInRB;
+				
+				if(~data[4]) begin						// shift specified as an immediate value
+					$display("ran at time ",$time);
+					dataOut3 = data[11:7];
+				end
+				else begin									// shift specified by the bottom of a register
+					addrRB = data[11:8];
+					#1 triggerOutRB = ~triggerOutRB;
+					#0 wait (readyInRB);
+					dataOut3 = dataInRB[4:0];
+				end
 			end
-			else dataOut2 = data[7:0];
+			else begin
+				dataOut2 = data[7:0];
+				dataOut3 = data[11:8] << 1; 
+			end
 		
 		end
 		#1 readyOut = 1;

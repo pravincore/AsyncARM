@@ -134,7 +134,6 @@ module decode_interface_test;
 		// Initialize Inputs
 		reset = 0;
 		trigger_da = 0;
-		$monitor(ready_da, $time);
 		// Wait 100 ns for global reset to finish
 		#100;
 		

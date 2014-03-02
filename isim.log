@@ -1,5 +1,5 @@
 ISim log file
-Running: C:\Users\pravinkumar\Documents\GitHub\AsyncARM\decode_interface_test_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb C:/Users/pravinkumar/Documents/GitHub/AsyncARM/decode_interface_test_isim_beh.wdb 
+Running: C:\Users\pravinkumar\Documents\GitHub\AsyncARM\alu_test_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb C:/Users/pravinkumar/Documents/GitHub/AsyncARM/alu_test_isim_beh.wdb 
 ISim P.28xd (signature 0xa0883be4)
 ----------------------------------------------------------------------
 INFO:Security:51 - The XILINXD_LICENSE_FILE environment variable is not set.
@@ -22,19 +22,14 @@ available at "www.acresso.com".
 WARNING: A full ISim License cannot be checked out due to the issues listed above. Please use Xilinx License Configuration Manager to fix these issues in order to check out a full ISim license.
 WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
 This is a Lite version of ISim.
-WARNING: File "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/decode_interface_test.v" Line 39.  For instance decode_interface_test/regb/, width 4 of formal port addrr is not equal to width 32 of actual signal addr_drg.
 Time resolution is 1 ps
 # onerror resume
 # wave add /
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-0                   0
-ran at time                  104
-ran at time                  109
-0                 109
-1                 117
-Stopped at time : 159 ns : File "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/decode_interface_test.v" Line 145
+ran at time                  108
+Stopped at time : 150 ns : File "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/alu_test.v" Line 172
 ISim P.28xd (signature 0xa0883be4)
 ----------------------------------------------------------------------
 INFO:Security:51 - The XILINXD_LICENSE_FILE environment variable is not set.
@@ -57,15 +52,8 @@ available at "www.acresso.com".
 WARNING: A full ISim License cannot be checked out due to the issues listed above. Please use Xilinx License Configuration Manager to fix these issues in order to check out a full ISim license.
 WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
 This is a Lite version of ISim.
-WARNING: File "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/decode_interface_test.v" Line 39.  For instance decode_interface_test/regb/, width 4 of formal port addrr is not equal to width 32 of actual signal addr_drg.
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-0                   0
-ran at time                  104
-ran at time                  109
-0                 109
-ran at time                  117
-0                 117
-1                 123
-Stopped at time : 167 ns : File "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/decode_interface_test.v" Line 147
+ran at time                  108
+Stopped at time : 160 ns : File "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/alu_test.v" Line 172
