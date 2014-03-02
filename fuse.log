@@ -12,7 +12,7 @@ Analyzing Verilog file "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/alu.v" in
 Analyzing Verilog file "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/alu_test.v" into library work
 Analyzing Verilog file "C:/Xilinx/14.2/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
-WARNING:HDLCompiler:1016 - "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/alu_test.v" Line 144: Port triggerInw is not connected to this instance
+WARNING:HDLCompiler:1016 - "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/alu_test.v" Line 146: Port triggerInw is not connected to this instance
 Completed static elaboration
 Compiling module alu
 Compiling module decode
@@ -27,4 +27,4 @@ Waiting for 1 sub-compilation(s) to finish...
 Compiled 8 Verilog Units
 Built simulation executable C:/Users/pravinkumar/Documents/GitHub/AsyncARM/alu_test_isim_beh.exe
 Fuse Memory Usage: 29056 KB
-Fuse CPU Usage: 732 ms
+Fuse CPU Usage: 670 ms

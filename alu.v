@@ -11,6 +11,7 @@ module alu(
 	input readyIn,					//decoder
 	output reg [31:0]dataOut1, //writeback
 	output reg [31:0]dataOut2,	//writeback
+	output reg [31:0]dataOut3,	//writeback
 	output reg [31:0]cpsrOut,	//writeback
 	output reg triggerOut,		//decoder
 	output reg readyOut,			//writeback
@@ -30,6 +31,7 @@ module alu(
 	initial fork
 		dataOut1 =0;
 		dataOut2 =0;
+		dataOut3 =0;
 		cpsrOut =0;
 		triggerOut =0;
 		readyOut =0;
@@ -63,6 +65,7 @@ module alu(
 				data2 = dataIn2;
 				data3 = dataIn3;
 				data4 = dataIn4;
+				dataOut3 = dataIn4;
 				type = typeIn;
 			join
 			

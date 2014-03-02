@@ -2,9 +2,9 @@ Command line:
    alu_test_isim_beh.exe
      -simmode  gui
      -simrunnum  0
-     -socket  51908
+     -socket  55987
 
-Sun Mar 02 15:05:14 2014
+Sun Mar 02 17:27:51 2014
 
 
- Elaboration Time: 0.670804 sec
+ Elaboration Time: 0.608404 sec

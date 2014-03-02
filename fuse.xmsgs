@@ -5,7 +5,7 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"C:/Users/pravinkumar/Documents/GitHub/AsyncARM/alu_test.v" Line 144: Port <arg fmt="%s" index="1">triggerInw</arg> is not connected to this instance
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"C:/Users/pravinkumar/Documents/GitHub/AsyncARM/alu_test.v" Line 146: Port <arg fmt="%s" index="1">triggerInw</arg> is not connected to this instance
 </msg>
 
 </messages>
