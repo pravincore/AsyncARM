@@ -29,4 +29,4 @@ Time resolution is 1 ps
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
 ran at time                  108
-Stopped at time : 160 ns : File "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/alu_test.v" Line 172
+Stopped at time : 160 ns : File "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/alu_test.v" Line 180

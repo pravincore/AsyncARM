@@ -32,6 +32,7 @@ module alu_test;
 	wire [31:0] cpsr_aw;
 	wire ready_aw;
 	wire w_aw;
+	wire [31:0]srcDst_aw;
 	
 	wire [31:0] data1_da;
 	wire [31:0] data2_da;
@@ -40,6 +41,7 @@ module alu_test;
 	wire [3:0] type_da;
 	wire ready_da;
 	wire trigger_da;
+	wire [31:0]srcDst_da;
 	
 	wire ready_drg;
 	wire [31:0] data_drg;
@@ -63,6 +65,8 @@ module alu_test;
 	wire [31:0]pcR_frg;
 	
 	wire [31:0]cpsr_irg;
+	
+//	wire [31:0]cpsr_wrg;
 
 	// Instantiate the Unit Under Test (UUT)
 	alu uut (
@@ -78,8 +82,10 @@ module alu_test;
 		.dataOut2(data2_aw), 
 		.cpsrOut(cpsr_aw), 
 		.triggerOut(trigger_da), 
-		.readyOut(ready_aw),
-		.w(w_aw)
+		.readyOut(ready_aw), 
+		.w(w_aw), 
+		.srcDstIn(srcDst_da), 
+		.srcDstOut(srcDst_aw)
 	);
 	
 	///////////////////////////////////////////////////////////
@@ -99,7 +105,8 @@ module alu_test;
 		.readyInRB(ready_drg), 
 		.dataInRB(data_drg), 
 		.addrRB(addr_drg), 
-		.triggerOutRB(trigger_drg)
+		.triggerOutRB(trigger_drg), 
+		.srcDstOut(srcDst_da)
 	);
 	
 	
@@ -152,6 +159,7 @@ module alu_test;
 		.pcIn(pcW_frg),
 		.pcOut(pcR_frg),
 		.cpsrOut(cpsr_irg)
+//		.cpsrIn(cpsr_wrg)
 	);
 	
 	///////////////////////////////////////

@@ -1,7 +1,0 @@
-verilog work "rom.v"
-verilog work "regbanknpc.v"
-verilog work "issuer.v"
-verilog work "fetch.v"
-verilog work "decode.v"
-verilog work "decode_interface_test.v"
-verilog work "C:/Xilinx/14.2/ISE_DS/ISE//verilog/src/glbl.v"

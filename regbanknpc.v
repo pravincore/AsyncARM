@@ -28,7 +28,8 @@ output reg readyOut,			// decoder
 output reg [31:0]dataOut,	// decoder
 input [31:0]pcIn,				// fetch
 output reg [31:0]pcOut,		// fetch
-output reg [31:0]cpsrOut	// issue
+output reg [31:0]cpsrOut,	// issue
+input [31:0]cpsrIn
     );
 	 
 	 reg [31:0]mem[15:0];
@@ -48,6 +49,7 @@ output reg [31:0]cpsrOut	// issue
 	 mem[9] = 10;
 	 
 	 cpsr = 0;
+	 cpsrOut =0;
 	 readyOut = 0;
 	 dataOut = 0;
 	 pcOut = 0;
@@ -75,8 +77,12 @@ output reg [31:0]cpsrOut	// issue
 	 
 	 // cpsr out for the issuer
 	 
-	 always @(cpsr)
-		cpsrOut = cpsr;
+	 always @(cpsrIn) begin
+		fork
+			cpsrOut = cpsrIn;
+			cpsr = cpsrIn;
+		join
+	 end
 	 
 	 // pc
 	 initial begin

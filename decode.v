@@ -36,9 +36,12 @@ output reg triggerOut,			//issuer
 input readyInRB,					//rb
 input [31:0]dataInRB,			//rb
 output reg [3:0]addrRB,			//rb		
-output reg triggerOutRB			//rb
+output reg triggerOutRB,			//rb
+
+output reg [31:0]srcDstOut	// source destination information passed ahead
     );
 	 
+	 reg [15:0]srcDestOut; 
 	 reg [31:0]data;
 	 event resetTrigger;
  	 integer resetFlag;
@@ -52,6 +55,7 @@ output reg triggerOutRB			//rb
 	 dataOut4 = 0;
 	 readyOut = 0;
 	 triggerOut = 0;
+	 srcDstOut = 0;
 	 addrRB = 0;
 	 triggerOutRB = 0;
 	 resetFlag = 0;
@@ -68,6 +72,7 @@ output reg triggerOutRB			//rb
 		#0 wait (readyIn);
 		data = dataIn;
 		dataOut4 = dataIn; // original instruction
+		srcDstOut = dataIn[15:12];
 		
 		if( (~data[27] & ~data[26] & data[25])
 			 |((~data[27] & ~data[26] & ~data[25])&(~data[7]|~data[4])) ) // condition for data processing instructions

@@ -14,7 +14,9 @@ module alu(
 	output reg [31:0]cpsrOut,	//writeback
 	output reg triggerOut,		//decoder
 	output reg readyOut,			//writeback
-	output reg w					//writeback
+	output reg w,					//writeback
+	input [31:0]srcDstIn,		//decoder
+	output reg [31:0]srcDstOut	//writeback
 	);
 	
 	reg [31:0]data1;
@@ -34,6 +36,7 @@ module alu(
 		triggerOut =0;
 		readyOut =0;
 		w =0;
+		srcDstOut =0;
 		data1 =0;
 		data2 =0;
 		data3 =0;
@@ -64,6 +67,7 @@ module alu(
 				data3 = dataIn3;
 				data4 = dataIn4;
 				type = typeIn;
+				srcDstOut = srcDstIn;
 			join
 			
 			case(type)

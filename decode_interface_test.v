@@ -33,6 +33,7 @@ module decode_interface_test;
 	wire [3:0] type_da;
 	wire ready_da;
 	reg trigger_da;
+	wire [31:0]srcDst_da;
 	
 	wire ready_drg;
 	wire [31:0] data_drg;
@@ -73,7 +74,8 @@ module decode_interface_test;
 		.readyInRB(ready_drg), 
 		.dataInRB(data_drg), 
 		.addrRB(addr_drg), 
-		.triggerOutRB(trigger_drg)
+		.triggerOutRB(trigger_drg), 
+		.srcDstOut(srcDst_da)
 	);
 	
 	
