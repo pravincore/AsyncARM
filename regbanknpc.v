@@ -94,5 +94,9 @@ input [31:0]cpsrIn
 	 end
 	 always @(mem[15])
 		pcOut = mem[15];
+	
+	//////////////////////////////// debugging ////////////////////////
+	
+	initial $monitor("Contents of r7 ", mem[7]);
 	 
 endmodule

@@ -19,28 +19,38 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module writeback(
-input reset,
-input [31:0]dataIn1,
-input [31:0]dataIn2,
-input [31:0]cpsrIn,
-input [31:0]srcDstIn,
-input readyIn,
-input w,
-output reg [31:0]dataOut,
-output reg [3:0]addrOut,
-output reg [31:0]cpsrOut,
-output reg triggerOut,
-output reg triggerOutRB
+input reset,					//global
+input [31:0]dataIn1,			//alu
+input [31:0]dataIn2,			//alu
+input [31:0]cpsrIn,			//alu
+input [31:0]srcDstIn,		//alu
+input readyIn,					//alu
+input wIn,						//alu
+output reg [31:0]dataOut,	//register bank
+output reg [3:0]addrOut,	//register bank
+output reg [31:0]cpsrOut,	//register bank
+output reg triggerOut,		//register bank
+output reg triggerOutRB		//register bank
     );
 	 
-	 
+	 reg [31:0]data1;
+	 reg [31:0]data2;
+	 reg [31:0]cpsr;
+	 reg [31:0]srcDst;
+	 reg w;
 	 reg resetFlag;
 	 event resetTrigger;
 	 
 	 initial fork
+		data1 =0;
+		data2 =0;
+		cpsr =0;
+		srcDst =0;
+		w =0;
 		resetFlag =0;
 		dataOut =0;
 		addrOut =0;
+		cpsrOut =0;
 		triggerOut =0;
 		triggerOutRB =0;
 	 join
@@ -50,9 +60,30 @@ output reg triggerOutRB
 		 @(resetTrigger);
 		 forever begin
 		 
-			if (!resetFlag) #1 triggerOut = ~triggerOut;
+			if (!resetFlag) begin
+				$display("ran at time ", $time);
+				#1 triggerOut = ~triggerOut;
+			end
 			else resetFlag = 0;
 			#0 wait (readyIn);
+			
+			fork
+				data1 = dataIn1;
+				data2 = dataIn2;
+				cpsr = cpsrIn;
+				srcDst = srcDstIn;
+				w = wIn;
+			join
+			
+			if(w) begin
+				
+				cpsrOut = cpsr;
+				
+				addrOut = srcDst[3:0];
+				dataOut = data1;
+				triggerOutRB = ~triggerOutRB;
+				
+			end
 			
 		 end
 	 end

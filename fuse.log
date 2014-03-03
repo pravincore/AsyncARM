@@ -1,29 +1,31 @@
-Running: C:\Xilinx\14.2\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o C:/Users/pravinkumar/Documents/GitHub/AsyncARM/alu_test_isim_beh.exe -prj C:/Users/pravinkumar/Documents/GitHub/AsyncARM/alu_test_beh.prj work.alu_test work.glbl 
+Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/writeback_test_isim_beh.exe" -prj "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/writeback_test_beh.prj" "work.writeback_test" "work.glbl" 
 ISim P.28xd (signature 0xa0883be4)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
+Analyzing Verilog file "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/writeback.v" into library work
 Analyzing Verilog file "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/rom.v" into library work
 Analyzing Verilog file "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/regbanknpc.v" into library work
 Analyzing Verilog file "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/issuer.v" into library work
 Analyzing Verilog file "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/fetch.v" into library work
 Analyzing Verilog file "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/decode.v" into library work
 Analyzing Verilog file "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/alu.v" into library work
-Analyzing Verilog file "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/alu_test.v" into library work
+Analyzing Verilog file "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/writeback_test.v" into library work
 Analyzing Verilog file "C:/Xilinx/14.2/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
-WARNING:HDLCompiler:1016 - "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/alu_test.v" Line 151: Port triggerInw is not connected to this instance
 Completed static elaboration
+Compiling module writeback
 Compiling module alu
 Compiling module decode
 Compiling module issuer
 Compiling module fetch
 Compiling module rom
 Compiling module regbank
-Compiling module alu_test
+Compiling module writeback_test
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Compiled 8 Verilog Units
-Built simulation executable C:/Users/pravinkumar/Documents/GitHub/AsyncARM/alu_test_isim_beh.exe
-Fuse Memory Usage: 29024 KB
-Fuse CPU Usage: 685 ms
+Waiting for 2 sub-compilation(s) to finish...
+Compiled 9 Verilog Units
+Built simulation executable C:/Users/pravinkumar/Documents/GitHub/AsyncARM/writeback_test_isim_beh.exe
+Fuse Memory Usage: 28928 KB
+Fuse CPU Usage: 639 ms

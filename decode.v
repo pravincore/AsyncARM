@@ -96,7 +96,6 @@ output reg [31:0]srcDstOut	// source destination information passed ahead
 				dataOut2 = dataInRB;
 				
 				if(~data[4]) begin						// shift specified as an immediate value
-					$display("ran at time ",$time);
 					dataOut3 = data[11:7];
 				end
 				else begin									// shift specified by the bottom of a register
