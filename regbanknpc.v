@@ -37,16 +37,22 @@ input [31:0]cpsrIn
 	 
 	 initial begin
 	 // for simulation only
-	 mem[0] = 1;
-	 mem[1] = 2;
-	 mem[2] = 3;
-	 mem[3] = 4;
-	 mem[4] = 5;
-	 mem[5] = 6;
-	 mem[6] = 7;
-	 mem[7] = 8;
-	 mem[8] = 9;
-	 mem[9] = 10;
+	 mem[0] = 0;
+	 mem[1] = 0;
+	 mem[2] = 0;
+	 mem[3] = 0;
+	 mem[4] = 0;
+	 mem[5] = 0;
+	 mem[6] = 0;
+	 mem[7] = 0;
+	 mem[8] = 0;
+	 mem[9] = 0;
+	 mem[10] = 0;
+	 mem[11] = 0;
+	 mem[12] = 0;
+	 mem[13] = 0;
+	 mem[14] = 0;
+	 mem[15] = 0;
 	 
 	 cpsr = 0;
 	 cpsrOut =0;
@@ -97,6 +103,6 @@ input [31:0]cpsrIn
 	
 	//////////////////////////////// debugging ////////////////////////
 	
-	initial $monitor("Contents of r7 ", mem[7]);
+	initial $monitor("Contents of r1 ", mem[1]," at time ", $time);
 	 
 endmodule

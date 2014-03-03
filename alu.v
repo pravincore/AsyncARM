@@ -179,7 +179,8 @@ module alu(
 							//----------Carry -----------------
 							if ( (data4[24:21]==4'b0100) || (data4[24:21]==4'b0101) || (data4[24:21]==4'b1011)) // Carry is affected only by these instructions
 								cpsrOut[29] = carryNew;
-							
+							else
+								cpsrOut[29] = 1'b0;
 							//---------Zero-------------
 							if (dataOut1 == 0)
 								cpsrOut[30]=1'b1;
@@ -188,9 +189,9 @@ module alu(
 							
 							//---------Negative--------
 							if(dataOut1[31])
-								cpsrOut[31] = 1;
+								cpsrOut[31] = 1'b0;
 							else
-								cpsrOut[31] = 0;
+								cpsrOut[31] = 1'b0;
 							
 							//---------Overflow----------
 							if ( (data4[24:21] == 4'b0100) || (data4[24:21] == 4'b0101) || (data4[24:21] == 4'b1011))

@@ -195,7 +195,7 @@ module writeback_test;
 		
 		reset =1;
 		
-		#50 $finish;
+		#500 $finish;
         
 		// Add stimulus here
 

@@ -46,6 +46,7 @@
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_LOG" xil_pn:name="isim.log"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="issue_interface_test_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="issue_interface_test_isim_beh.wdb"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="issue_interface_test_stx_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="issuer_test_isim_beh.exe"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="regbank_test_isim_beh.exe"/>
@@ -64,7 +65,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1393811841" xil_pn:in_ck="-697136685617374026" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1393811841">
+    <transform xil_pn:end_ts="1393836779" xil_pn:in_ck="-697136685617374026" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1393836779">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="alu.v"/>
@@ -87,11 +88,11 @@
       <outfile xil_pn:name="writeback.v"/>
       <outfile xil_pn:name="writeback_test.v"/>
     </transform>
-    <transform xil_pn:end_ts="1393811713" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="8630139895782513970" xil_pn:start_ts="1393811713">
+    <transform xil_pn:end_ts="1393836816" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="8630139895782513970" xil_pn:start_ts="1393836816">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1393811713" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="667868225275298384" xil_pn:start_ts="1393811713">
+    <transform xil_pn:end_ts="1393836816" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="667868225275298384" xil_pn:start_ts="1393836816">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
@@ -99,7 +100,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1393811841" xil_pn:in_ck="-697136685617374026" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1393811841">
+    <transform xil_pn:end_ts="1393836779" xil_pn:in_ck="-697136685617374026" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1393836779">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="alu.v"/>
@@ -122,7 +123,7 @@
       <outfile xil_pn:name="writeback.v"/>
       <outfile xil_pn:name="writeback_test.v"/>
     </transform>
-    <transform xil_pn:end_ts="1393811846" xil_pn:in_ck="-697136685617374026" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="8749786989333824531" xil_pn:start_ts="1393811841">
+    <transform xil_pn:end_ts="1393836820" xil_pn:in_ck="-697136685617374026" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="8749786989333824531" xil_pn:start_ts="1393836816">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="fuse.log"/>
@@ -132,7 +133,7 @@
       <outfile xil_pn:name="writeback_test_isim_beh.exe"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1393811846" xil_pn:in_ck="-6780993791735362888" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-3303970094057741770" xil_pn:start_ts="1393811846">
+    <transform xil_pn:end_ts="1393836820" xil_pn:in_ck="-1358219657426294992" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-3303970094057741770" xil_pn:start_ts="1393836820">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="isim.cmd"/>

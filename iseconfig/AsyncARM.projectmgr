@@ -88,6 +88,7 @@
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
          <ClosedNode>/alu_test C:|Users|pravinkumar|Desktop|AsyncARM-71d5df1d36b8cf2f19ca5ada18803e3e38a010fd|AsyncARM-71d5df1d36b8cf2f19ca5ada18803e3e38a010fd|alu_test.v</ClosedNode>
+         <ClosedNode>/alu_test C:|Users|pravinkumar|Documents|GitHub|AsyncARM|alu_test.v</ClosedNode>
          <ClosedNode>/cpu_test C:|Users|pravinkumar|Desktop|AsyncARM-71d5df1d36b8cf2f19ca5ada18803e3e38a010fd|AsyncARM-71d5df1d36b8cf2f19ca5ada18803e3e38a010fd|cpu_test.v</ClosedNode>
          <ClosedNode>/cpu_test C:|Users|pravinkumar|Documents|GitHub|AsyncARM|cpu_test.v</ClosedNode>
          <ClosedNode>/cpu_test C:|Users|pravinkumar|Documents|GitHub|AsyncARM|cpu_test.v/uut - cpu</ClosedNode>
@@ -112,13 +113,13 @@
          <ClosedNode>/rom_test |home|pravinkumar|Workspace|Xilinx|AsyncARM|rom_test.v</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>alu_test (C:/Users/pravinkumar/Documents/GitHub/AsyncARM/alu_test.v)</SelectedItem>
+         <SelectedItem>alu1 - alu (C:/Users/pravinkumar/Documents/GitHub/AsyncARM/alu.v)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >4</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000013c000000020000000000000000000000000200000064ffffffff0000008100000003000000020000013c0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>alu_test (C:/Users/pravinkumar/Documents/GitHub/AsyncARM/alu_test.v)</CurrentItem>
+      <CurrentItem>alu1 - alu (C:/Users/pravinkumar/Documents/GitHub/AsyncARM/alu.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
       <ClosedNodes>
