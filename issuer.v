@@ -45,6 +45,7 @@ input [31:0]cpsr				// regbank
 	 reg [31:0]data;
 	 reg [3:0]cond;
 	 event resetTrigger;
+	 event issueFailTrigger;
 	 integer resetFlag;
 	 
 	 initial
@@ -64,7 +65,7 @@ input [31:0]cpsr				// regbank
 	 initial begin
 	 #10; // This is to make the design insensitive to initialization edges
 	 // Almost took 24hrs to debug this one ! SH pushed me to do it !
-	 forever @(posedge triggerIn or negedge triggerIn or resetTrigger)
+	 forever @(posedge triggerIn or negedge triggerIn or resetTrigger or issueFailTrigger)
 	 begin
 //		$display("Issuer ran with cpsr %h", cpsr," and data %h", dataIn," at ", $time);
 		
@@ -90,13 +91,16 @@ input [31:0]cpsr				// regbank
       || (cond == 4'b1100) && (cpsr[30] == 1'b0) && (cpsr[31] == cpsr[28])
 		|| (cond == 4'b1101) && ((cpsr[30] == 1'b1) || (cpsr[31] != cpsr[28]))
 		|| (cond == 4'b1110))
-		begin
+		begin					// Instruction issued !
 			dataOut = data; // computation delay modelled
 			// dataOut setup time
 			#1 readyOut = 1;
 		end
-	 end
-	 
+		else begin			// Instruction not issued !
+			-> issueFailTrigger;
+		end
+		
+	 end 
 	 end
 	 
 	 always @(reset)

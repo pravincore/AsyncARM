@@ -61,7 +61,7 @@ output reg triggerOutRB		//register bank
 		 forever begin
 		 
 			if (!resetFlag) begin
-				$display("ran at time ", $time);
+//				$display("ran at time ", $time);
 				#1 triggerOut = ~triggerOut;
 			end
 			else resetFlag = 0;

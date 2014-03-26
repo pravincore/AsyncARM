@@ -29,10 +29,8 @@ Time resolution is 1 ps
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
 Contents of r1          0 at time                    0
-ran at time                  106
-ran at time                  115
-ran at time                  128
 Contents of r1 4294967291 at time                  128
-ran at time                  141
 Contents of r1          0 at time                  141
+Contents of r1          1 at time                  152
+Contents of r1        254 at time                  163
 Stopped at time : 600 ns : File "C:/Users/pravinkumar/Documents/GitHub/AsyncARM/writeback_test.v" Line 198
