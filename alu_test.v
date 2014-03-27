@@ -174,10 +174,14 @@ module alu_test;
 		reset = 1;
 		#0
 		wait(ready_aw) trigger_aw = ~trigger_aw;
-//    #0
-//		wait(ready_aw) trigger_aw = ~trigger_aw;
+		#0
+		wait(ready_aw) trigger_aw = ~trigger_aw;
+		#0
+		wait(ready_aw) trigger_aw = ~trigger_aw;
+		#0
+		wait(ready_aw) trigger_aw = ~trigger_aw;
 		
-		#50 $finish;
+		#100 $finish;
 		// Add stimulus here
 
 	end

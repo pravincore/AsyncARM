@@ -103,6 +103,6 @@ input [31:0]cpsrIn
 	
 	//////////////////////////////// debugging ////////////////////////
 	
-	initial $monitor("Contents of r1 ", mem[1]," at time ", $time);
+	//initial $monitor("Contents of r1 ", mem[1]," at time ", $time);
 	 
 endmodule

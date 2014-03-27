@@ -41,7 +41,6 @@ output reg triggerOutRB,			//rb
 output reg [31:0]srcDstOut	// source destination information passed ahead
     );
 	 
-	 reg [15:0]srcDestOut; 
 	 reg [31:0]data;
 	 event resetTrigger;
  	 integer resetFlag;
@@ -52,7 +51,7 @@ output reg [31:0]srcDstOut	// source destination information passed ahead
 	 dataOut1 = 0;
 	 dataOut2= 0;
 	 dataOut3 = 0;
-	 dataOut4 = 0;
+	 dataOut4 = 0;//original instruction
 	 readyOut = 0;
 	 triggerOut = 0;
 	 srcDstOut = 0;
@@ -74,8 +73,10 @@ output reg [31:0]srcDstOut	// source destination information passed ahead
 		dataOut4 = dataIn; // original instruction
 		srcDstOut = dataIn[15:12];
 		
+		
+		//-------------------- data processing instructions------------------------
 		if( (~data[27] & ~data[26] & data[25])
-			 |((~data[27] & ~data[26] & ~data[25])&(~data[7]|~data[4])) ) // condition for data processing instructions
+			 |((~data[27] & ~data[26] & ~data[25])&(~data[7]|~data[4])) )
 		begin
 			typeOut = 0;
 			
@@ -111,8 +112,25 @@ output reg [31:0]srcDstOut	// source destination information passed ahead
 			end
 		
 		end
+		// -------------------------- data processing decoded-------------------------------
+		
+		//------------------------------branching--------------------
+		
+		if(data[27:25]==3'b101) begin
+			typeOut = 1;
+			addrRB = 4'b1111;;
+			#1 triggerOutRB = ~triggerOutRB;
+			#0 wait (readyInRB);
+			dataOut1 = dataInRB;
+			
+			srcDstOut = 4'b1111;
+			
+		end
+		
+		//------------------------------branching decoded------------
+		
+		// -------------------------- dataout(s) ready --------------------------
 		#1 readyOut = 1;
-//		trigger
 	 end
 	 end
 	 

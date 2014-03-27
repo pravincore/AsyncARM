@@ -28,6 +28,7 @@ module alu(
 	reg n,z,c,v;
 	reg [1:0]shiftType;
 	event resetTrigger;
+	reg signed [31:0]temp;
 	
 	initial fork
 		dataOut1 =0;
@@ -50,6 +51,7 @@ module alu(
 		z =0;
 		c =0;
 		v =0;
+		temp =0;
 	join
 	
 	initial begin
@@ -73,6 +75,7 @@ module alu(
 			case(type)
 				4'b0000:						// data processing instruction
 					begin
+					$display(" ran at time ",$time);
 						//-------------- barrel shifter-------------------
 						if (~data4[25]) shiftType = data4[6:5];
 						else shiftType = 2'b11;
@@ -209,6 +212,20 @@ module alu(
 						
 					end
 					//---------------------------end of data processing instructions-----------
+				
+				//--------------------------- branching------------------------
+				4'b0001: 
+				begin
+					data4[23:0] = data4[23:0] +1;
+					data4[31:8] = data4[23:0];
+					data4[7:0] = 0;
+					temp = data4;							// Unless you have a signed variable, ASR won't work in verilog
+					data4 = temp >>> 8;
+					dataOut1 = data4+data1;
+					w =1;
+					
+				end
+				//--------------------------end of branching-------------------
 				
 				default: $display("Instruction type not supported (yet)!");
 			endcase
