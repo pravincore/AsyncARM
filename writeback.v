@@ -27,7 +27,7 @@ input [31:0]srcDstIn,		//alu
 input readyIn,					//alu
 input wIn,						//alu
 output reg [31:0]dataOut,	//register bank
-output reg [3:0]addrOut,	//register bank
+output reg [31:0]addrOut,	//register bank
 output reg [31:0]cpsrOut,	//register bank
 output reg triggerOut,		//alu
 output reg triggerOutRB		//register bank
@@ -78,8 +78,8 @@ output reg triggerOutRB		//register bank
 			if(w) begin
 				
 				cpsrOut = cpsr;
-				
-				addrOut = srcDst[3:0];
+//				$display("In WB, srcDst at time ",$time, " is %b ", srcDst);
+				addrOut = srcDst;
 				dataOut = data1;
 				triggerOutRB = ~triggerOutRB;
 				

@@ -72,14 +72,14 @@ input readyInRM				//ram
 	 initial begin
 	 #10;
 		forever@(posedge triggerIn or negedge triggerIn or resetTrigger) begin
-			$display("In MEM, ran main loop at time ",$time);
+//			$display("In MEM, ran main loop at time ",$time);
 			readyOut = 0;
 			if (!resetFlag) triggerOut = ~triggerOut;
 			else resetFlag = 0;
 			#0 wait (readyIn);
 			
 			cpsrOut = cpsrIn;
-			srcDstOut = srcDstOut;
+			srcDstOut = srcDstIn;
 			wOut = wIn;
 			m = mIn;
 			data1 = dataIn1;
@@ -91,11 +91,11 @@ input readyInRM				//ram
 					addrOutRM = data2;
 					rwOut = 0;
 					triggerOutRM = ~triggerOutRM;
-					wait (readyInRM) #0;
+					#0 wait (readyInRM);
 					dataOut1 = dataInRM;
 				end
 				else begin					// store
-					$display("In MEM, ran store at", $time);
+//					$display("In MEM, ran store at", $time);
 					addrOutRM = srcDst;
 					rwOut = 1;
 					dataOutRM = data2;
@@ -113,7 +113,7 @@ input readyInRM				//ram
 	 
 	 always @(reset)
 		if (reset) begin
-			$display("In MEM, ran reset trigger at time ",$time);
+//			$display("In MEM, ran reset trigger at time ",$time);
 			wait (readyIn);
 			resetFlag = 1;
 			-> resetTrigger;

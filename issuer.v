@@ -46,6 +46,7 @@ input [31:0]cpsr				// regbank
 	 reg [3:0]cond;
 	 event resetTrigger;
 	 event issueFailTrigger;
+	 event issueFail;
 	 integer resetFlag;
 	 
 	 initial
@@ -97,11 +98,15 @@ input [31:0]cpsr				// regbank
 			#1 readyOut = 1;
 		end
 		else begin			// Instruction not issued !
-			-> issueFailTrigger;
+			-> issueFail;
+			
 		end
 		
 	 end 
 	 end
+	 
+	 always@(issueFail)
+		#1 -> issueFailTrigger;
 	 
 	 always @(reset)
 		if (reset) begin

@@ -135,17 +135,19 @@ output reg [31:0]srcDstOut	// source destination information passed ahead
 		if(data[27:26]==2'b01) begin
 			typeOut = 2;
 			
-			if(!data[20]) begin // incase of store
-				addrRB = data[19:16];
-				#1 triggerOutRB = ~triggerOutRB;
-				#0 wait (readyInRB);
-				dataOut1 = dataInRB;
-			end
 			
-			addrRB = data[15:12];
+			addrRB = data[19:16];
 			#1 triggerOutRB = ~triggerOutRB;
 			#0 wait (readyInRB);
-			dataOut2 = dataInRB;
+			dataOut1 = dataInRB; // ram address data
+			if (data[20]) srcDstOut = data[15:12]; // destination register
+			
+			if(!data[20]) begin // incase of store
+				addrRB = data[15:12];
+				#1 triggerOutRB = ~triggerOutRB;
+				#0 wait (readyInRB);
+				dataOut2 = dataInRB; //source data for store
+			end
 			
 		end
 		

@@ -1,6 +1,7 @@
 mov r10, #10
 mov r11, #15
 str r10,[r11]
+ldr r1, [r11]
 
 
 ;mov r10, #10

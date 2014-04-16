@@ -66,5 +66,7 @@ output reg readyOut
 		end
 	 end
 	 
+	 //////////////////// debugging //////////////////////
+	 
 	 
 endmodule
