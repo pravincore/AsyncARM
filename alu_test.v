@@ -32,6 +32,7 @@ module alu_test;
 	wire [31:0] cpsr_aw;
 	wire ready_aw;
 	wire w_aw;
+	wire m_aw;
 	wire [31:0]srcDst_aw;
 	
 	wire [31:0] data1_da;
@@ -84,6 +85,7 @@ module alu_test;
 		.triggerOut(trigger_da), 
 		.readyOut(ready_aw), 
 		.w(w_aw), 
+		.m(m_aw), 
 		.srcDstIn(srcDst_da), 
 		.srcDstOut(srcDst_aw)
 	);

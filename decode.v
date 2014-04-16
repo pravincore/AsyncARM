@@ -129,6 +129,29 @@ output reg [31:0]srcDstOut	// source destination information passed ahead
 		
 		//------------------------------branching decoded------------
 		
+		
+		//--------------------------load/store------------------
+		
+		if(data[27:26]==2'b01) begin
+			typeOut = 2;
+			
+			if(!data[20]) begin // incase of store
+				addrRB = data[19:16];
+				#1 triggerOutRB = ~triggerOutRB;
+				#0 wait (readyInRB);
+				dataOut1 = dataInRB;
+			end
+			
+			addrRB = data[15:12];
+			#1 triggerOutRB = ~triggerOutRB;
+			#0 wait (readyInRB);
+			dataOut2 = dataInRB;
+			
+		end
+		
+		//-------------------load/store decoded------------------
+		
+		
 		// -------------------------- dataout(s) ready --------------------------
 		#1 readyOut = 1;
 	 end
@@ -141,5 +164,6 @@ output reg [31:0]srcDstOut	// source destination information passed ahead
 			resetFlag = 1;
 			-> resetTrigger;
 		end
+		
 	 
 endmodule

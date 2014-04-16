@@ -17,7 +17,7 @@
 // Revision 0.01 - File Created
 // Additional Comments: 
 //
-//////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
 module regbank(
 input triggerInr,				// decoder
 input triggerInw,				// writeback
@@ -37,6 +37,23 @@ input [31:0]cpsrIn
 	 
 	 initial begin
 	 // for simulation only
+//	 mem[0] = 0;
+//	 mem[1] = 1;
+//	 mem[2] = 2;
+//	 mem[3] = 3;
+//	 mem[4] = 4;
+//	 mem[5] = 5;
+//	 mem[6] = 6;
+//	 mem[7] = 7;
+//	 mem[8] = 8;
+//	 mem[9] = 9;
+//	 mem[10] = 10;
+//	 mem[11] = 11;
+//	 mem[12] = 12;
+//	 mem[13] = 13;
+//	 mem[14] = 14;
+//	 mem[15] = 15;
+	 
 	 mem[0] = 0;
 	 mem[1] = 0;
 	 mem[2] = 0;
@@ -47,12 +64,12 @@ input [31:0]cpsrIn
 	 mem[7] = 0;
 	 mem[8] = 0;
 	 mem[9] = 0;
-	 mem[10] = 0;
-	 mem[11] = 0;
-	 mem[12] = 0;
-	 mem[13] = 0;
-	 mem[14] = 0;
-	 mem[15] = 0;
+	 mem[10] =0;
+	 mem[11] =0;
+	 mem[12] =0;
+	 mem[13] =0;
+	 mem[14] =0;
+	 mem[15] =0;
 	 
 	 cpsr = 0;
 	 cpsrOut =0;
@@ -103,6 +120,6 @@ input [31:0]cpsrIn
 	
 	//////////////////////////////// debugging ////////////////////////
 	
-	//initial $monitor("Contents of r1 ", mem[1]," at time ", $time);
+	initial $monitor("Contents of r1 ", mem[1]," at time ", $time);
 	 
 endmodule

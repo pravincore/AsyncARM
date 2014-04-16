@@ -7,23 +7,24 @@ module alu(
 	input [31:0]dataIn3,			//decoder
 	input [31:0]dataIn4,			//decoder
 	input [3:0]typeIn,			//decoder
-	input triggerIn,				//writeback
+	input triggerIn,				//memory
 	input readyIn,					//decoder
-	output reg [31:0]dataOut1, //writeback
-	output reg [31:0]dataOut2,	//writeback
-	output reg [31:0]cpsrOut,	//writeback
+	output reg [31:0]dataOut1, //memory
+	output reg [31:0]dataOut2,	//memory
+	output reg [31:0]cpsrOut,	//memory
 	output reg triggerOut,		//decoder
-	output reg readyOut,			//writeback
-	output reg w,					//writeback
+	output reg readyOut,			//memory
+	output reg w,					//memory
+	output reg m,					//memory
 	input [31:0]srcDstIn,		//decoder
-	output reg [31:0]srcDstOut	//writeback
+	output reg [31:0]srcDstOut	//memory
 	);
 	
 	reg [31:0]data1;
 	reg [31:0]data2;
 	reg [31:0]data3;
 	reg [31:0]data4;
-	reg type;
+	reg [3:0]type;
 	reg carryNew, carryOld, resetFlag;
 	reg n,z,c,v;
 	reg [1:0]shiftType;
@@ -37,6 +38,7 @@ module alu(
 		triggerOut =0;
 		readyOut =0;
 		w =0;
+		m =0;
 		srcDstOut =0;
 		data1 =0;
 		data2 =0;
@@ -59,6 +61,8 @@ module alu(
 		forever @(posedge triggerIn or negedge triggerIn or resetTrigger) begin
 			
 			readyOut = 0;
+			m = 0;
+			w = 0;
 			if (!resetFlag) #1 triggerOut = ~triggerOut;
 			else resetFlag=0;
 			#0 wait (readyIn);
@@ -75,7 +79,6 @@ module alu(
 			case(type)
 				4'b0000:						// data processing instruction
 					begin
-					$display(" ran at time ",$time);
 						//-------------- barrel shifter-------------------
 						if (~data4[25]) shiftType = data4[6:5];
 						else shiftType = 2'b11;
@@ -216,6 +219,7 @@ module alu(
 				//--------------------------- branching------------------------
 				4'b0001: 
 				begin
+				//$display("ran at time ", $time);
 					data4[23:0] = data4[23:0] +1;
 					data4[31:8] = data4[23:0];
 					data4[7:0] = 0;
@@ -226,6 +230,28 @@ module alu(
 					
 				end
 				//--------------------------end of branching-------------------
+				
+				//---------------------------load/store------------------------
+				4'b0010:
+				begin
+					$display("In ALU, ran l/s at", $time);
+					if(data4[20]) begin // load
+						srcDstOut = data4[15:12];	// destination register number
+						dataOut2 = dataIn2;			// source ram location
+						dataOut1 = 1;
+						w = 1;
+					end
+					else begin		// store
+						$display("In ALU, ran store at", $time);
+						srcDstOut = dataIn2;			// destination ram location
+						dataOut2 = dataIn1;			// source data
+						dataOut1 = 0;
+						w = 0;
+					end
+					
+					m = 1;
+				end		
+				//---------------------------end of load/store-----------------
 				
 				default: $display("Instruction type not supported (yet)!");
 			endcase

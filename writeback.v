@@ -29,7 +29,7 @@ input wIn,						//alu
 output reg [31:0]dataOut,	//register bank
 output reg [3:0]addrOut,	//register bank
 output reg [31:0]cpsrOut,	//register bank
-output reg triggerOut,		//register bank
+output reg triggerOut,		//alu
 output reg triggerOutRB		//register bank
     );
 	 
