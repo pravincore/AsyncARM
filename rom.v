@@ -29,7 +29,7 @@ output reg readyOut		//
 
 	initial
 	begin
-		$readmemh("Factorial.bin.exa",mem);
+		$readmemh("test.bin.exa",mem);
 		readyOut = 0;
 		data = 0;
 	end

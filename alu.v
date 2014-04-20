@@ -214,7 +214,7 @@ module alu(
 
 						end
 						//--------------------------end of cpsr update-----------------------
-						$display( " %t   result   %b and cpsr   %b ", $time ,result , cpsrOut);
+//						$display( "In ALU, %t   result   %b and cpsr   %b ", $time ,result , cpsrOut);
 						dataOut1 = result;
 					end
 					//---------------------------end of data processing instructions-----------
@@ -254,7 +254,7 @@ module alu(
 				end		
 				//---------------------------end of load/store-----------------
 
-				default: $display("Instruction type not supported (yet)!");
+				default: $display("In ALU, Instruction type not supported (yet)!");
 			endcase
 
 			#1 readyOut =1;

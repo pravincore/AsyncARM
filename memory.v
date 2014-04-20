@@ -87,7 +87,8 @@ input readyInRM				//ram
 			srcDst = srcDstIn;
 			
 			if(m) begin
-				if(dataIn1) begin			// load
+//				$display ("In MEM, load/store attempted at time ", $time);
+				if(data1) begin			// load
 					addrOutRM = data2;
 					rwOut = 0;
 					triggerOutRM = ~triggerOutRM;
