@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2014-02-03T07:49:30</DateModified>
+  <DateModified>2014-04-23T11:01:18</DateModified>
   <ModuleName>cpu</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>/home/pravinkumar/Workspace/Xilinx/AsyncARM/iseconfig/cpu.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>/home/pravinkumar/Workspace/Xilinx/AsyncARM</ImplementationReportsDirectory>
+  <SavedFilePath>C:/Users/pravinkumar/Documents/GitHub/AsyncARM/iseconfig/cpu.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Users/pravinkumar/Documents/GitHub/AsyncARM\</ImplementationReportsDirectory>
   <DateInitialized>2014-02-03T07:49:30</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

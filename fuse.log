@@ -31,8 +31,8 @@ Compiling module ram
 Compiling module cpu_test
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Waiting for 1 sub-compilation(s) to finish...
+Waiting for 2 sub-compilation(s) to finish...
 Compiled 12 Verilog Units
 Built simulation executable C:/Users/pravinkumar/Documents/GitHub/AsyncARM/cpu_test_isim_beh.exe
-Fuse Memory Usage: 29272 KB
-Fuse CPU Usage: 763 ms
+Fuse Memory Usage: 29324 KB
+Fuse CPU Usage: 702 ms

@@ -120,6 +120,6 @@ input [31:0]cpsrIn
 	
 	//////////////////////////////// debugging ////////////////////////
 	
-	initial $monitor("In RGB, r1=%d, r2=%d, r3=%d, r4=%d, r5=%d", mem[1],mem[2],mem[3],mem[4],mem[5]," at time ", $time);
+	initial $monitor("In RGB, r1=%b, r2=%d, r3=%d, r4=%d, r5=%d", mem[1],mem[2],mem[3],mem[4],mem[5]," at time ", $time);
 	 
 endmodule

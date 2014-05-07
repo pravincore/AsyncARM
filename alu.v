@@ -253,6 +253,48 @@ module alu(
 					m = 1;
 				end		
 				//---------------------------end of load/store-----------------
+				
+				//---------------------------multiply (primitive)--------------
+				
+				4'b0011: 
+					begin
+						
+						case (data4[21]) // accumulate
+							1'b0 : 
+								begin 
+									dataOut1 = data1 * data2;
+									w=1;
+								end
+	
+							1'b1 : 
+								begin
+									dataOut1 = data1 * data2 + data3; // operand 3 has value to be accumulated. see in decoder
+									w=1;
+								end
+	
+						endcase
+					
+					//--------------Update flags for Multiply.. Actually carry and overflow are meaningless in multiplication....---------------	
+	               if( data4[20]) //set flags
+	               begin 
+
+							if (dataOut1==32'b0)
+								cpsrOut[30]=1'b1;
+							else 
+								cpsrOut[30]=1'b0; // zero
+																	
+							if(dataOut1[31])
+								cpsrOut[31]=1;
+							else
+								cpsrOut[31]=0; // negative
+							
+						end
+
+					end
+					//-----------------------------end of cpsr update--------------------------
+	         
+				
+				//-------------------------end of multiply---------------------
 
 				default: $display("In ALU, Instruction type not supported (yet)!");
 			endcase

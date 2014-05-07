@@ -71,7 +71,6 @@ output reg [31:0]srcDstOut	// source destination information passed ahead
 		#0 wait (readyIn);
 		data = dataIn;
 		dataOut4 = dataIn; // original instruction
-		srcDstOut = dataIn[15:12];
 		
 		
 		//-------------------- data processing instructions------------------------
@@ -79,7 +78,7 @@ output reg [31:0]srcDstOut	// source destination information passed ahead
 			 |((~data[27] & ~data[26] & ~data[25])&(~data[7]|~data[4])) )
 		begin
 			typeOut = 0;
-			
+			srcDstOut = data[15:12];
 			if ( data[24:21] != 4'b1101 && data[24:21] != 4'b1111 ) begin
 			// get operand1
 			addrRB = data[19:16];
@@ -152,6 +151,28 @@ output reg [31:0]srcDstOut	// source destination information passed ahead
 		end
 		
 		//-------------------load/store decoded------------------
+		
+		//-------------------multiply----------------------------
+		
+		if ((data[27:21] == 6'b000000)&&(data[7:4] == 4'b1001))	begin
+			
+			typeOut = 3;
+			
+			addrRB = data[3:0];
+			#1 triggerOutRB = ~triggerOutRB;
+			#0 wait (readyInRB);
+			dataOut1 = dataInRB;
+			
+			addrRB = data[11:8];
+			#1 triggerOutRB = ~triggerOutRB;
+			#0 wait (readyInRB);
+			dataOut2 = dataInRB;
+			
+			srcDstOut = data[19:16];
+		
+		end
+		
+		//-------------------multipy decoded---------------------
 		
 		
 		// -------------------------- dataout(s) ready --------------------------
